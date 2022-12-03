@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Secular+One&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
@@ -10,6 +13,8 @@ body {
   background-color: antiquewhite;
   display: grid;
   grid-template: .5fr 5fr / 1fr;
+  background: url('./images/bg.jpg');
+  background-size: cover;
 }
 
 /********** NavBar **********/
@@ -35,5 +40,29 @@ form input {
 /********** Content *********/
 #content {
   display: grid;
+  justify-items: center; 
+  align-items: center;
 }
-
+#weatherCard {
+  width: 30rem;
+  height: 25rem;
+  outline: 1px solid #999;
+  display: grid;
+  grid-template: .5fr 5fr / 1fr;
+}
+#cardHeader {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  border-bottom: 1px solid #999;
+}
+#headerLeft {
+  font-size: 1.5rem;
+  display: grid;
+  align-items: center;
+}
+#headerRight {
+  font-size: 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: right;
+}

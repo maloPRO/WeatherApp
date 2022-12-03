@@ -8,13 +8,13 @@ const getWeather = (function () {
     console.log(weatherData);
     const city = weatherData.name;
     const { country } = weatherData.sys;
-    const mainWeather = weatherData.weather[0].main;
+    const condition = weatherData.weather[0].main;
     const { temp } = weatherData.main;
     const { humidity } = weatherData.main;
     const { feels_like } = weatherData.main;
     const { pressure } = weatherData.main;
 
-    console.log(`Weather: ${mainWeather}`);
+    console.log(`Weather: ${condition}`);
     console.log(`City: ${city}`);
     console.log(`Country: ${country}`);
     console.log(`Temp: ${temp}`);
