@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
+import format from 'date-fns/format';
 import './main.css';
 
 const getWeather = (function () {
@@ -50,4 +51,16 @@ const getWeather = (function () {
   return { getWeatherToday };
 }());
 
+const handleDates = () => {
+  const dateValue = document.getElementById('date');
+  const timeValue = document.getElementById('time');
+  const dateToday = format(new Date(), 'eeee, LLL d, yyyy');
+  const timeNow = format(new Date(), 'H:m:s');
+
+  dateValue.textContent = dateToday;
+  timeValue.textContent = timeNow;
+};
+
+handleDates();
 getWeather.getWeatherToday('london');
+
