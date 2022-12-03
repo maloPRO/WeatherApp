@@ -14,11 +14,10 @@ const getWeather = (function () {
   const chanceValue = document.getElementById('chance');
   const conditionIcon = document.getElementById('conditionIcon');
   const windValue = document.getElementById('wind');
-  const query = input.value;
 
-  async function getWeatherToday(query) {
+  async function getWeatherToday(cityName = 'nairobi') {
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=11c9f9d2aa9271d63ff7a170e2ac157f&units=metric`, { mode: 'cors' });
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=11c9f9d2aa9271d63ff7a170e2ac157f&units=metric`, { mode: 'cors' });
       const weatherData = await response.json();
       const city = weatherData.name;
       const condition = weatherData.weather[0].main;
@@ -28,12 +27,11 @@ const getWeather = (function () {
       const { pressure } = weatherData.main;
       const pic = weatherData.weather[0].icon;
       const wind = weatherData.wind.speed;
-  
-      console.log(weatherData);
+
       cityValue.textContent = city;
       conditionValue.textContent = condition;
       humidityValue.textContent = humidity;
-      feelsLikeValue.textContent = feels_like + feelsLikeValue.textContent;
+      feelsLikeValue.textContent = `${Math.ceil(feels_like)}${feelsLikeValue.textContent}`;
       pressureValue.textContent = pressure;
       tempValue.textContent = Math.round(temp);
       conditionIcon.src = `http://openweathermap.org/img/wn/${pic}@2x.png`;
@@ -45,8 +43,7 @@ const getWeather = (function () {
   }
   function handleForm(e) {
     e.preventDefault();
-    getWeatherToday();
-    console.log(input.value)
+    getWeatherToday(input.value);
   }
   form.addEventListener('submit', handleForm);
 

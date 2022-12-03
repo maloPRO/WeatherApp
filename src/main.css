@@ -27,6 +27,8 @@ body {
 
 #nav p {
   font-size: 1.2rem;
+  color: #333;
+  padding-left: 15px;
 }
 form {
   display: flex;
