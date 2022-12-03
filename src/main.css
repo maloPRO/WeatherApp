@@ -35,6 +35,9 @@ form {
 form input {
   width: 100%;
   height: 2rem;
+  border-radius: 5px;
+  padding-left: 5px;
+  border: none;
 }
 
 /********** Content *********/
@@ -44,25 +47,93 @@ form input {
   align-items: center;
 }
 #weatherCard {
-  width: 30rem;
-  height: 25rem;
-  outline: 1px solid #999;
+  width: 42rem;
+  outline: 2px solid #777;
   display: grid;
-  grid-template: .5fr 5fr / 1fr;
+  grid-template: 1fr / 2fr 1.5fr;
 }
-#cardHeader {
+
+#cardRight {
+  width: 100%;
+  background-color: #222;
+  display: grid;
+  grid-template: .8fr 1.3fr / 1fr;
+  padding: 10px;
+
+}
+#cardRightTop {
+  display: grid;
+  justify-items: center;
+  color: #fffada;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom: 5px solid #fffada;
+  padding: 10px;
+}
+#cardRightTop img {
+  width: 50%;
+}
+#cardRightBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#cardRightBottom p {
+  padding: 10px 0;
+  color: #fffada;
+  border-bottom: 1px solid #fffada;
+  display: flex;
+  justify-content: space-between;
+}
+#cardRightBottom p:nth-child(5) {
+  border: none;
+}
+#cardLeft {
+  display: grid;
+  grid-template: .5fr 3fr / 1fr;
+}
+#cardLeftTop {
+  grid-area: 1/1/2/2;
+  border-bottom: 1px solid #999;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fffada;
+  display: grid;
+  align-items: center;
+  padding-left: 10px;
+
+}
+#cardLeftBottom {
+  grid-area: 2/1/3/2;
   display: grid;
   grid-template: 1fr / 1fr 1fr;
-  border-bottom: 1px solid #999;
 }
-#headerLeft {
-  font-size: 1.5rem;
-  display: grid;
-  align-items: center;
+#bottomLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
 }
-#headerRight {
+#bottomLeft p:first-child {
+  color: #fffada;
+  font-size: 2.5rem;
+}
+#bottomLeft p:last-child {
+  color: #fffada;
   font-size: 1rem;
+}
+#bottomRight {
   display: grid;
+  align-items: flex-end;
+  padding: 10px;
+  font-size: 4rem;
+  color: #fffada;
+  font-family: 'Courier New', Courier, monospace;
+}
+#bottomRight p {
+  display: inline-block;
+}#bottomRight div {
+  display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
 }
