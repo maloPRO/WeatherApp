@@ -13,7 +13,7 @@ body {
   background-color: antiquewhite;
   display: grid;
   grid-template: .5fr 5fr / 1fr;
-  background: url('./images/bg.jpg');
+  background: url('./images/bg2.jpg');
   background-size: cover;
 }
 
@@ -27,7 +27,7 @@ body {
 
 #nav p {
   font-size: 1.2rem;
-  color: #333;
+  color: #fffada;
   padding-left: 15px;
 }
 form {
