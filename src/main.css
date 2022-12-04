@@ -53,6 +53,7 @@ form input {
   outline: 2px solid #fffada;
   display: grid;
   grid-template: 1fr / 2fr 1.5fr;
+  border-radius: 5px;
 }
 
 #cardRight {
@@ -92,7 +93,8 @@ form input {
 }
 #cardLeft {
   display: grid;
-  grid-template: .5fr 3fr / 1fr;
+  grid-template: .5fr 3fr .5fr / 1fr;
+  background: rgba(0,0,0,0.3);
 }
 #cardLeftTop {
   grid-area: 1/1/2/2;
@@ -105,8 +107,15 @@ form input {
   padding-left: 10px;
 
 }
+#cardLeftCenter {
+  display: grid ;
+  justify-content: center;
+  align-items: center;
+}
+#centerImg {
+  width: 10rem;
+}
 #cardLeftBottom {
-  grid-area: 2/1/3/2;
   display: grid;
   grid-template: 1fr / 1fr 1fr;
 }
@@ -138,4 +147,11 @@ form input {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#cardRightBottom p:first-child {
+  display: flex;
+}
+#temp {
+  font-family: 'Courier New', Courier, monospace;
+
 }
