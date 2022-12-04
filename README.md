@@ -11,3 +11,5 @@ Weather app is a project that demonstrates use of API to fetch external data fro
 - Git
 - Webpack
 - npm
+### Live Preview
+[WeatherApp](https://malopro.github.io/WeatherApp/)
