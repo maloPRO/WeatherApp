@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 import format from 'date-fns/format';
@@ -31,7 +32,6 @@ const getWeather = (function () {
       const wind = weatherData.wind.speed;
       const desc = weatherData.weather[0].description;
 
-
       console.log(weatherData);
 
       cityValue.textContent = city;
@@ -45,8 +45,7 @@ const getWeather = (function () {
       windValue.textContent = `${wind}m/s`;
       descValue.textContent = desc;
     } catch (error) {
-      console.log('Error');
-      console.error(error);
+      alert(error);
     }
   }
   function handleForm(e) {
