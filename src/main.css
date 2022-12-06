@@ -54,6 +54,7 @@ form input {
   display: grid;
   grid-template: 1fr / 2fr 1.5fr;
   border-radius: 5px;
+  animation: card 1s ease-in;
 }
 
 #cardRight {
@@ -154,4 +155,13 @@ form input {
 #temp {
   font-family: 'Courier New', Courier, monospace;
 
+}
+
+@keyframes card {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
