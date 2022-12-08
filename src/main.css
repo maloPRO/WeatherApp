@@ -49,12 +49,12 @@ form input {
   align-items: center;
 }
 #weatherCard {
-  width: 42rem;
+  width: 40rem;
   outline: 2px solid #fffada;
   display: grid;
   grid-template: 1fr / 2fr 1.5fr;
   border-radius: 5px;
-  animation: card 1s ease-in;
+  animation: card 1s  ease-in;
 }
 
 #cardRight {
