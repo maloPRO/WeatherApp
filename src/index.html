@@ -7,10 +7,15 @@
   <title>myWeather</title>
 </head>
 <body>
+</body>
+<div class="page-loader">
+  <div class="spinner"></div>
+</div>
+
   <div id="nav">
     <p>myWeather</p>
     <form action="" id="form">
-      <input id="search" type="text" placeholder="Search City">
+      <input id="search" type="text" placeholder="Search City" required>
     </form>
   </div>
   <div id="content">
@@ -28,7 +33,7 @@
             <p id="date"></p>
           </div>
           <div id="bottomRight">
-            <div><p><span id="temp"></span></p><sup>&#xb0</sup><span>c</span></p></div>
+            <div><p><span id="temp"></span></p><sup>&#xb0</sup>C</p></div>
           </div>
         </div>
       </div>
@@ -39,7 +44,7 @@
         </div>
         <div id="cardRightBottom">
           <p>Description: <span id="desc"></span></p>
-          <p>Feels like: <span><span id="feelsLike"></span><sup>&#xb0</sup><span>c</span></span></p>
+          <p>Feels like: <span><span id="feelsLike"></span> <sup>&#xb0</sup><span>C</span></span></p>
           <p>Humidity: <span id="humidity"></span></p>
           <p>Wind speed: <span id="wind"></span></p>
           <p>Pressure: <span id="pressure"></span></p>
@@ -47,5 +52,4 @@
       </div>
     </div>
   </div>
-</body>
 </html>
