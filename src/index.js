@@ -4,6 +4,16 @@ import getWeather from './weather';
 getWeather.getWeatherToday('nairobi');
 getWeather.handleDates();
 
-const loader = document.querySelector('.page-loader');
+// create an element to hold the loader
+const loader = document.createElement('div');
 
-setTimeout(() => loader.classList.add('disapper'), 2000);
+// set the loader's class so that it can be styled with CSS
+loader.className = 'loader';
+
+// add the loader to the page
+document.body.appendChild(loader);
+
+// remove the loader after a short delay
+setTimeout(() => {
+  document.body.removeChild(loader);
+}, 1000);
