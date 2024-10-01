@@ -15,6 +15,14 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+      watch: true, // This replaces watchContentBase
+    },
+    hot: true, // Enable Hot Module Replacement (HMR)
+    open: true, // Opens the browser after server starts
+  },
   module: {
     rules: [
       {
