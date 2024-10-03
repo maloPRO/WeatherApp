@@ -3,7 +3,6 @@ import './styles/input.css';
 let city = 'Nairobi';
 const form = document.querySelector('form');
 const input = document.querySelector('.input');
-const icon = document.querySelector('.icon');
 
 const WeatherApp = async () => {
   try {
@@ -18,15 +17,16 @@ const WeatherApp = async () => {
     console.log(weatherData);
     const address = document.querySelector('.address');
     const condition = document.querySelector('.condition');
-    const humidity = document.querySelector('.hum');
+    const humidity = document.querySelector('.humidity');
     const temp = document.querySelector('.temp');
+    const icon = document.querySelector('.icon');
     const iconUrl = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
 
     address.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
     condition.textContent = weatherData.weather[0].description;
-    humidity.textContent = `Humidity: ${weatherData.main.humidity}%`;
-    temp.textContent = `Temperature: ${weatherData.main.temp}\u00B0C`;
+    humidity.textContent = `HUMIDITY ${weatherData.main.humidity}%`;
     icon.src = iconUrl;
+    temp.textContent = `${weatherData.main.temp}\u00B0C`;
 
     console.log(weatherData.weather[0].icon);
   } catch (err) {}

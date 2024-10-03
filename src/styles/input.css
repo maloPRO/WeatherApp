@@ -3,5 +3,25 @@
 @tailwind utilities;
 
 @layer components {
-
+    body {
+        @apply p-4 w-screen h-screen bg-blue-300 flex justify-center items-center;  
+    }
+    .main {
+        @apply flex flex-col lg:flex-row bg-red-500 w-full md:w-3/4 lg:w-1/2 h-2/3 ;
+    }
+    .left {
+        @apply flex flex-col h-full w-full bg-blue-200 basis-1/2;
+    }
+    .left-top {
+        @apply basis-1/2 text-white pt-6 pl-4 text-2xl font-bold; 
+    }
+    .left-btm {
+        @apply flex flex-col text-white text-2xl pl-4;
+    }
+    .icon {
+        @apply w-28;
+    }
+    .day {
+        ;
+    }
 }
