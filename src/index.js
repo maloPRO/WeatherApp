@@ -3,40 +3,32 @@ import './styles/input.css';
 let city = 'Nairobi';
 const form = document.querySelector('form');
 const input = document.querySelector('.input');
-const iconImage = document.querySelector('.icon');
+const icon = document.querySelector('.icon');
 
 const WeatherApp = async () => {
   try {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=K2X54GNUTB3Q7VYRHRCL9ELCK`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=11c9f9d2aa9271d63ff7a170e2ac157f&units=metric`,
       { mod: 'cors' }
     );
-
-    const WeatherData = await response.json();
-    const weather = WeatherData.currentConditions;
+    if (!response.ok) {
+      throw new Error(`City not found: ${response.status}`);
+    }
+    const weatherData = await response.json();
+    console.log(weatherData);
     const address = document.querySelector('.address');
     const condition = document.querySelector('.condition');
     const humidity = document.querySelector('.hum');
-    const datetime = document.querySelector('.datetime');
     const temp = document.querySelector('.temp');
-    const feelslike = document.querySelector('.feelslike');
-    const { icon } = weather;
+    const iconUrl = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
 
-    const iconResponse = await fetch(
-      `https://api.giphy.com/v1/gifs/translate?api_key=BgT9zSdmRAWyFDU7NEcy31mUcxEZQ3Df=${icon}`,
-      { mode: 'cors' }
-    );
+    address.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
+    condition.textContent = weatherData.weather[0].description;
+    humidity.textContent = `Humidity: ${weatherData.main.humidity}%`;
+    temp.textContent = `Temperature: ${weatherData.main.temp}\u00B0C`;
+    icon.src = iconUrl;
 
-    const iconData = await iconResponse.json();
-
-    iconImage.src = iconData.data.images.original.url;
-
-    address.textContent = WeatherData.address;
-    condition.textContent = weather.conditions;
-    humidity.textContent = `Humidity: ${weather.humidity}%`;
-    datetime.textContent = weather.datetime;
-    temp.textContent = `Temperature: ${weather.temp}\u00B0C`;
-    feelslike.textContent = `Feels Like: ${weather.feelslike}\u00B0C`;
+    console.log(weatherData.weather[0].icon);
   } catch (err) {}
 };
 
