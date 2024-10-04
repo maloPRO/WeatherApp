@@ -1,9 +1,10 @@
 import './styles/input.css';
-import locIcon from './assets/placeholder.png';
+import icon2 from './assets/placeholder.png';
 
 let city = 'Nairobi';
 const form = document.querySelector('form');
 const input = document.querySelector('.input');
+const search = document.querySelector('.search');
 const now = new Date();
 const days = [
   'Sunday',
@@ -58,7 +59,7 @@ const WeatherApp = async () => {
     today.textContent = days[now.getDay()];
     date.textContent = `${day} ${month} ${year}`;
     address.innerHTML = `
-      <img src=${locIcon}>
+      <img class='pin' src=${icon2}>
       ${weatherData.name}, ${weatherData.sys.country}
     `;
     condition.textContent = weatherData.weather[0].description;
@@ -67,6 +68,11 @@ const WeatherApp = async () => {
     pressure.textContent = weatherData.main.pressure;
     wind.textContent = `${weatherData.wind.speed} Km/h`;
     feels.textContent = `${weatherData.main.feels_like} \u00B0C`;
+
+    search.innerHTML = `
+      <img class='pin' src=${icon2}>
+      CHANGE LOCATION
+    `;
 
     icon.style.backgroundImage = `url(${iconUrl})`;
   } catch (err) {}
@@ -78,4 +84,12 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   city = input.value;
   WeatherApp();
+  form.reset();
+  search.classList.toggle('hidden');
+  input.classList.toggle('hidden');
+});
+
+search.addEventListener('click', () => {
+  search.classList.toggle('hidden');
+  input.classList.toggle('hidden');
 });
