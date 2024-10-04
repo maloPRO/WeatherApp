@@ -33,6 +33,9 @@ const months = [
 const month = months[now.getMonth()];
 const year = now.getFullYear();
 
+const errBox = document.createElement('div');
+errBox.classList.add('errBox');
+
 const WeatherApp = async () => {
   try {
     const response = await fetch(
@@ -75,7 +78,10 @@ const WeatherApp = async () => {
     `;
 
     icon.style.backgroundImage = `url(${iconUrl})`;
-  } catch (err) {}
+  } catch (err) {
+    errBox.textContent = err;
+    form.appendChild(errBox);
+  }
 };
 
 window.onload = WeatherApp();
@@ -87,6 +93,12 @@ form.addEventListener('submit', async (e) => {
   form.reset();
   search.classList.toggle('hidden');
   input.classList.toggle('hidden');
+
+  setTimeout(() => {
+    if (errBox) {
+      form.removeChild(errBox);
+    }
+  }, 3000);
 });
 
 search.addEventListener('click', () => {
