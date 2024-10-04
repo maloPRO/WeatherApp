@@ -1,5 +1,5 @@
 import './styles/input.css';
-import icon2 from './assets/placeholder.png';
+import icon2 from './assets/pin.png';
 
 let city = 'Nairobi';
 const form = document.querySelector('form');
@@ -43,7 +43,7 @@ const WeatherApp = async () => {
       { mod: 'cors' }
     );
     if (!response.ok) {
-      throw new Error(`City not found: ${response.status}`);
+      throw new Error(`City not found: ${response.status}!!`);
     }
     const weatherData = await response.json();
     console.log(weatherData);
