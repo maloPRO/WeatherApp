@@ -4,7 +4,7 @@
 
 @layer components {
     body {
-        @apply p-4 w-screen h-screen bg-blue-950 flex justify-center items-center;  
+        @apply p-6 w-screen h-screen bg-blue-950 flex justify-center items-center;  
     }
     .main {
         @apply flex flex-col md:flex-row w-full md:w-3/4 lg:w-3/5 xl:w-2/5  h-3/4 md:h-1/2 lg:h-1/2 items-center font-poppins;
