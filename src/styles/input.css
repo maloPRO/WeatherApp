@@ -34,7 +34,10 @@
         @apply w-4 h-4;
     }
     .temp {
-        @apply font-bold text-3xl;
+        @apply font-bold text-2xl;
+    }
+    .condition {
+        @apply text-lg;
     }
 
     .right {

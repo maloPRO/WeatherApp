@@ -46,45 +46,38 @@ const WeatherApp = async () => {
       throw new Error(`City not found: ${response.status}!!`);
     }
     const weatherData = await response.json();
-    console.log(weatherData);
-    const today = document.querySelector('.day');
-    const date = document.querySelector('.date');
-    const address = document.querySelector('.address');
-    const condition = document.querySelector('.condition');
-    const humidity = document.querySelector('.humidity');
-    const pressure = document.querySelector('.press');
-    const wind = document.querySelector('.wind');
-    const feels = document.querySelector('.feels');
-    const temp = document.querySelector('.temp');
-    const icon = document.querySelector('.icon');
-    const iconUrl = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
-
-    today.textContent = days[now.getDay()];
-    date.textContent = `${day} ${month} ${year}`;
-    address.innerHTML = `
+    document.querySelector('.day').textContent = days[now.getDay()];
+    document.querySelector('.date').textContent = `${day} ${month} ${year}`;
+    document.querySelector('.press').textContent = weatherData.main.pressure;
+    document.querySelector('.address').innerHTML = `
       <img class='pin' src=${icon2}>
       ${weatherData.name}, ${weatherData.sys.country}
-    `;
-    condition.textContent = weatherData.weather[0].description;
-    temp.textContent = `${weatherData.main.temp} \u00B0C`;
-    humidity.textContent = `${weatherData.main.humidity}%`;
-    pressure.textContent = weatherData.main.pressure;
-    wind.textContent = `${weatherData.wind.speed} Km/h`;
-    feels.textContent = `${weatherData.main.feels_like} \u00B0C`;
+      `;
+    document.querySelector('.condition').textContent =
+      weatherData.weather[0].description;
+    document.querySelector('.humidity').textContent =
+      `${weatherData.main.humidity}%`;
+    document.querySelector('.wind').textContent =
+      `${weatherData.wind.speed} Km/h`;
+    document.querySelector('.feels').textContent =
+      `${weatherData.main.feels_like} \u00B0C`;
+    document.querySelector('.temp').textContent =
+      `${weatherData.main.temp} \u00B0C`;
+    document.querySelector('.icon').style.backgroundImage =
+      `url(http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png)`;
 
     search.innerHTML = `
       <img class='pin' src=${icon2}>
       CHANGE LOCATION
     `;
-
-    icon.style.backgroundImage = `url(${iconUrl})`;
   } catch (err) {
     errBox.textContent = err;
     form.appendChild(errBox);
+    setTimeout(() => errBox.remove(), 3000);
   }
 };
 
-window.onload = WeatherApp();
+window.onload = WeatherApp;
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -93,12 +86,6 @@ form.addEventListener('submit', async (e) => {
   form.reset();
   search.classList.toggle('hidden');
   input.classList.toggle('hidden');
-
-  setTimeout(() => {
-    if (errBox) {
-      form.removeChild(errBox);
-    }
-  }, 3000);
 });
 
 search.addEventListener('click', () => {
