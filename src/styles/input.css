@@ -4,33 +4,55 @@
 
 @layer components {
     body {
-        @apply p-4 w-screen h-screen bg-blue-300 flex justify-center items-center;  
+        @apply p-4 w-screen h-screen bg-blue-950 flex justify-center items-center;  
     }
     .main {
-        @apply flex flex-col md:flex-row bg-red-500 w-full  md:w-1/3 h-3/4 md:h-2/4 ;
+        @apply flex flex-col md:flex-row w-full md:w-3/4 xl:w-2/5  h-3/4 md:h-2/4 items-center font-poppins;
     }
     .left {
-        @apply py-6 px-3 flex flex-col h-full w-full bg-blue-200 basis-1/2;
+        @apply py-6 px-4 flex flex-col h-full w-full bg-blue-300 basis-1/2 rounded-3xl shadow-md ;
     }
     .left-top {
         @apply basis-1/2 text-white text-xl lg:text-2xl font-bold flex flex-col gap-1; 
     }
     .left-btm {
-        @apply flex flex-col text-white text-2xl;
+        @apply flex flex-col text-white text-2xl basis-1/2 justify-end;
     }
     .icon {
-        @apply w-20 h-20 bg-cover;
+        @apply w-20 md:w-28 h-20 md:h-28 bg-cover;
     }
     .day {
-        @apply text-4xl;
+        @apply text-4xl ;
     }
     .date {
-        @apply text-lg;
+        @apply text-lg font-light;
     }
     .address {
-        @apply flex items-center gap-2 text-lg;
+        @apply flex items-center gap-1 text-lg font-semibold;
     }
     .address img {
         @apply w-4 h-4;
+    }
+    .temp {
+        @apply font-bold text-3xl;
+    }
+
+    .right {
+        @apply w-full h-full basis-1/2 px-4 md:px-0 md:py-4;
+    }
+    .rightCon {
+        @apply w-full h-full bg-slate-950 rounded-b-3xl md:rounded-b-none md:rounded-r-3xl shadow-lg text-white p-6 flex flex-col;
+    }
+    .con {
+        @apply flex justify-between font-bold text-xl font-semibold pb-1;
+    }
+    .con p:last-child {
+        @apply font-light;
+    }
+    .conditions {
+        @apply grid basis-1/2;
+    }
+    form {
+        @apply basis-1/2 flex items-center justify-center;
     }
 }
