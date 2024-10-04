@@ -1,4 +1,5 @@
 import './styles/input.css';
+import locIcon from './assets/placeholder.png';
 
 let city = 'Nairobi';
 const form = document.querySelector('form');
@@ -22,11 +23,15 @@ const WeatherApp = async () => {
     const icon = document.querySelector('.icon');
     const iconUrl = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
 
-    address.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
+    address.innerHTML = `
+      <img src=${locIcon}>
+      ${weatherData.name}, ${weatherData.sys.country}
+    `;
     condition.textContent = weatherData.weather[0].description;
     humidity.textContent = `HUMIDITY ${weatherData.main.humidity}%`;
-    icon.src = iconUrl;
     temp.textContent = `${weatherData.main.temp}\u00B0C`;
+
+    icon.style.backgroundImage = `url(${iconUrl})`;
 
     console.log(weatherData.weather[0].icon);
   } catch (err) {}
